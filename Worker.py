@@ -47,7 +47,7 @@ def extract_files(sources):
 
 # ask for work from the given urls
 def get_work(repo):
-    response = requests.get('http://127.0.0.1:6000/work', params={'key': 'value'})
+    response = requests.get('http://127.0.0.1:9999/work', params={'key': 'value'})
     response.encoding = 'utf-8'
     json_file = response.json()
     tree = repo.get(json_file['commit']).tree
@@ -66,7 +66,7 @@ def do_work(work):
 # post results to the url 
 def send_results(result):
     result = {'Result' : result}
-    post = requests.post('http://127.0.0.1:6000/results', json=result)
+    post = requests.post('http://127.0.0.1:9999/results', json=result)
 
 if __name__ == '__main__':
     bool = True
